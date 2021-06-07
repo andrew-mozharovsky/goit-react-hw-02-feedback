@@ -1,5 +1,5 @@
 import React from 'react';
-import Feedback from './components/Feedback';
+import { Feedback } from './components/Feedback';
 
 class App extends React.Component {
   render() {

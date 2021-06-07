@@ -16,8 +16,7 @@
 
   transition-property: background-color, color, box-shadow, transform;
   transition-duration: 250ms;
-  &:hover,
-  &:focus {
+  &:hover {
     transform: scale(1.1);
     background-color: tomato;
     color: #ffffff;

@@ -1,38 +1,23 @@
 import React from 'react';
 import styles from './Feedback.module.scss';
 
-import Controls from './Controls';
-import Statistics from './Statistics';
-import Notification from './Notification';
+import { Controls } from './Controls';
+import { Statistics } from './Statistics';
+import { Notification } from './Notification';
 
-class Feedback extends React.Component {
+export class Feedback extends React.Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
-  goodIncrement = () => {
-    this.setState(({ good }) => {
-      return {
-        good: good + 1,
-      };
+  incrementFeedback = feedback => () => {
+    this.setState(prevState => {
+      return { [feedback]: prevState[feedback] + 1 };
     });
   };
-  neutralIncrement = () => {
-    this.setState(({ neutral }) => {
-      return {
-        neutral: neutral + 1,
-      };
-    });
-  };
-  badIncrement = () => {
-    this.setState(({ bad }) => {
-      return {
-        bad: bad + 1,
-      };
-    });
-  };
+
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
@@ -48,11 +33,7 @@ class Feedback extends React.Component {
     return (
       <div className={styles.container}>
         <h1 className={styles.title}>Please leave feedback</h1>
-        <Controls
-          goodIncrement={this.goodIncrement}
-          neutralIncrement={this.neutralIncrement}
-          badIncrement={this.badIncrement}
-        />
+        <Controls incrementFeedback={this.incrementFeedback} />
         {good || neutral || bad ? (
           <Statistics
             good={good}
@@ -70,4 +51,3 @@ class Feedback extends React.Component {
     );
   }
 }
-export default Feedback;

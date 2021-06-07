@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Statistics.module.scss';
 
-const Statistics = ({
+export const Statistics = ({
   good,
   neutral,
   bad,
@@ -38,5 +38,3 @@ const Statistics = ({
     </div>
   );
 };
-
-export default Statistics;

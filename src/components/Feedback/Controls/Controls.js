@@ -2,24 +2,30 @@ import React from 'react';
 
 import styles from './Controls.module.scss';
 
-const Controls = ({ goodIncrement, neutralIncrement, badIncrement }) => {
+export const Controls = ({ incrementFeedback }) => {
   return (
     <div className={styles.controls}>
-      <button className={styles.button} type="button" onClick={goodIncrement}>
+      <button
+        className={styles.button}
+        type="button"
+        onClick={incrementFeedback('good')}
+      >
         Good
       </button>
       <button
         className={styles.button}
         type="button"
-        onClick={neutralIncrement}
+        onClick={incrementFeedback('neutral')}
       >
         Neutral
       </button>
-      <button className={styles.button} type="button" onClick={badIncrement}>
+      <button
+        className={styles.button}
+        type="button"
+        onClick={incrementFeedback('bad')}
+      >
         Bad
       </button>
     </div>
   );
 };
-
-export default Controls;
