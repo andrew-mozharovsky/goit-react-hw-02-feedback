@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Controls.module.scss';
 
-export const Controls = ({ incrementFeedback }) => {
+const Controls = ({ incrementFeedback }) => {
   return (
     <div className={styles.controls}>
       <button
@@ -29,3 +29,4 @@ export const Controls = ({ incrementFeedback }) => {
     </div>
   );
 };
+export default Controls;

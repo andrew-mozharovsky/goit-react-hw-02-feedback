@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Feedback.module.scss';
 
-import { Controls } from './Controls';
-import { Statistics } from './Statistics';
-import { Notification } from './Notification';
+import Controls from './Controls';
+import Statistics from './Statistics';
+import Notification from './Notification';
 
-export class Feedback extends React.Component {
+class Feedback extends React.Component {
   state = {
     good: 0,
     neutral: 0,
@@ -51,3 +51,4 @@ export class Feedback extends React.Component {
     );
   }
 }
+export default Feedback;
