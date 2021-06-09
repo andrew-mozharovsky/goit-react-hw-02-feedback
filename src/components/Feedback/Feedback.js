@@ -31,9 +31,12 @@ class Feedback extends React.Component {
   render() {
     const { good, neutral, bad } = this.state;
     return (
-      <div className={styles.container}>
+      <section className={styles.container}>
         <h1 className={styles.title}>Please leave feedback</h1>
-        <Controls incrementFeedback={this.incrementFeedback} />
+        <Controls
+          options={Object.keys(this.state)}
+          incrementFeedback={this.incrementFeedback}
+        />
         {good || neutral || bad ? (
           <Statistics
             good={good}
@@ -47,7 +50,7 @@ class Feedback extends React.Component {
         ) : (
           <Notification />
         )}
-      </div>
+      </section>
     );
   }
 }

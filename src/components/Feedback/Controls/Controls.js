@@ -2,30 +2,21 @@ import React from 'react';
 
 import styles from './Controls.module.scss';
 
-const Controls = ({ incrementFeedback }) => {
+const Controls = ({ incrementFeedback, options }) => {
   return (
     <div className={styles.controls}>
-      <button
-        className={styles.button}
-        type="button"
-        onClick={incrementFeedback('good')}
-      >
-        Good
-      </button>
-      <button
-        className={styles.button}
-        type="button"
-        onClick={incrementFeedback('neutral')}
-      >
-        Neutral
-      </button>
-      <button
-        className={styles.button}
-        type="button"
-        onClick={incrementFeedback('bad')}
-      >
-        Bad
-      </button>
+      {options.map(option => {
+        return (
+          <button
+            key={option}
+            className={styles.button}
+            type="button"
+            onClick={incrementFeedback(option)}
+          >
+            {option}
+          </button>
+        );
+      })}
     </div>
   );
 };
