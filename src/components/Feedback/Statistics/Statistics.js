@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Statistics.module.scss';
 
@@ -12,7 +13,7 @@ const Statistics = ({
   return (
     <div className={styles.statistics}>
       <h2 className={styles.title}>Statistics</h2>
-      <div className={styles.contant_container}>
+      <div className={styles.content_container}>
         <p className={styles.content}>
           Good:<span className={styles.value}> {good}</span>
         </p>
@@ -37,5 +38,12 @@ const Statistics = ({
       </div>
     </div>
   );
+};
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  countTotalFeedback: PropTypes.func.isRequired,
+  countPositiveFeedbackPercentage: PropTypes.func.isRequired,
 };
 export default Statistics;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Controls.module.scss';
 
@@ -19,5 +20,9 @@ const Controls = ({ incrementFeedback, options }) => {
       })}
     </div>
   );
+};
+Controls.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  incrementFeedback: PropTypes.func.isRequired,
 };
 export default Controls;
